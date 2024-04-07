@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Task Manager</title>
+</head>
+<body>
+    <div class="table-container">
+        <h2 style="color: #333;text-align: center;margin-bottom: 0px;">My Progress</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Task Name</th>
+                    <th>Progress Bar</th>
+                    <th>Progress</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody id="taskList">
+                <!-- Tasks will be dynamically added here -->
+            </tbody>
+        </table>
+        <br>
+        <br>
+
+        <!-- add task overlay -->
+        <div class="add-task-form">
+            <label for="taskName">Task Name:</label>
+            <input type="text" id="taskName" placeholder="Enter task name">
+
+            <label for="progress">Progress:</label>
+            <input type="number" id="progress" placeholder="Enter progress">
+
+            <label for="total">Total:</label>
+            <input type="number" id="total" placeholder="Enter total">
+
+            <button onclick="addTask()">Add Task</button>
+        </div>
+
+        <div class="add-new-task-button">
+            <button onclick="showOverlay()">Add New Task</button>
+            <button style="background-color: cadetblue;" onclick="deleteSelectedTasks()">Delete Selected</button>
+        </div>
+        
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="overlay-content">
+            <h3 style="color: #333;text-align: center;">Add New Task</h3>
+            <table class="no-border-table">
+                <tr style="margin-bottom: 0;">
+                    <td class="no-border-table"><label for="overlayTaskName">Task Name:</label></td>
+                    <td class="no-border-table"><input type="text" id="overlayTaskName" placeholder="Enter task name"></td>
+                </tr>
+                <tr style="margin-bottom: 0;">
+                    <td class="no-border-table"><label for="overlayProgress">Progress:</label></td>
+                    <td class="no-border-table"><input type="number" id="overlayProgress" placeholder="Enter progress"></td>
+                </tr>
+                <tr style="margin-bottom: 0;">
+                    <td class="no-border-table"><label for="overlayTotal">Total:</label></td>
+                    <td class="no-border-table"><input type="number" id="overlayTotal" placeholder="Enter total"></td>
+                </tr>
+            </table>
+    
+            <div style="display: flex; justify-content: center; margin-top: 15px;">
+                <button onclick="addTaskFromOverlay()" style="margin-right: 10px;">Add Task</button>
+                <button style="background-color: cadetblue;" onclick="hideOverlay()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="index.js">
+    </script>
+</body>
+</html>
