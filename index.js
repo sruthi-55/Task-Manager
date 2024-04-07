@@ -1,6 +1,8 @@
 // Retrieve tasks from localStorage on page load
-const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-renderTasks(storedTasks);
+document.addEventListener('DOMContentLoaded', function() {
+    const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    renderTasks(storedTasks);
+});
 
 function renderTasks(tasks) {
     const taskList = document.getElementById('taskList');
@@ -42,6 +44,7 @@ function deleteSelectedTasks() {
 
     localStorage.setItem('tasks', JSON.stringify(tasks));
     renderTasks(tasks);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 
@@ -66,6 +69,7 @@ function addTask() {
     document.getElementById('taskName').value = '';
     document.getElementById('progress').value = '';
     document.getElementById('total').value = '';
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 function editTask(name, progress, total) {
@@ -79,6 +83,7 @@ function editTask(name, progress, total) {
 
     // Show the overlay for editing
     showOverlay();
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 
@@ -118,6 +123,7 @@ function addTaskFromOverlay() {
     document.getElementById('overlayTaskName').value = '';
     document.getElementById('overlayProgress').value = '';
     document.getElementById('overlayTotal').value = '';
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 
